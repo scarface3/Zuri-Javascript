@@ -53,7 +53,9 @@ const checkYuGiOh = function (n) {
     console.log(`invalid parameter: ${n}`);
   } else {
     for (let i = 1; i <= n; i++) {
-      if (i % 15 == 0) {
+      if (i % 30 == 0) {
+        a.push("yu-gi-oh");
+      } else if (i % 15 == 0) {
         a.push("gi-oh");
       } else if (i % 10 == 0) {
         a.push("yu-oh");
@@ -74,5 +76,5 @@ const checkYuGiOh = function (n) {
   }
 };
 checkYuGiOh(10);
-checkYuGiOh("5");
+checkYuGiOh(30);
 checkYuGiOh("fizzbuzz is meh");
