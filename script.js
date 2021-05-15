@@ -46,8 +46,9 @@ convertFahrToCelsius("0");
 // To check that your link is accessible, try to open the link in an incognito browser window.
 
 // Good luck!
-let a = [];
+
 const checkYuGiOh = function (n) {
+  let a = [];
   if (isNaN(n) === true) {
     console.log(`invalid parameter: ${n}`);
   } else {
@@ -73,5 +74,5 @@ const checkYuGiOh = function (n) {
   }
 };
 checkYuGiOh(10);
-checkYuGiOh(5);
+checkYuGiOh("5");
 checkYuGiOh("fizzbuzz is meh");
