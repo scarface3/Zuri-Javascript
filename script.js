@@ -34,6 +34,7 @@ const convertFahrToCelsius = function (fahr) {
     return `${fahr} is not a valid number but a/an ${typeof fahr}`;
   } else {
     console.log(((fahr - 32) / 1.8).toFixed(4));
+    return ((fahr - 32) / 1.8).toFixed(4);
   }
 };
 convertFahrToCelsius(0);
