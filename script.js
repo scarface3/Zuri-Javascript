@@ -45,6 +45,7 @@ convertFahrToCelsius([1, 2, 3]);
 convertFahrToCelsius({ temp: 0 });
 convertFahrToCelsius(true);
 convertFahrToCelsius();
+convertFahrToCelsius("gcvhvd");
 
 // 2. Write a function named "checkYuGiOh" that takes a number, n, as an argument, creates an array of numbers from 1 to n and replaces factors of 2, 3, and 5 with "yu", "gi" and "oh", logs the resulting array to the console then returns the resulting array.
 
@@ -73,12 +74,16 @@ const checkYuGiOh = function (n) {
   let a = [];
   if (Array.isArray(n)) {
     console.log(`invalid parameter: [${n}]`);
+    return `invalid parameter: [${n}]`;
   } else if (typeof n === "object") {
     console.log(`invalid parameter: ${JSON.stringify(n)}`);
+    return `invalid parameter: ${JSON.stringify(n)}`;
   } else if (typeof n === "boolean") {
     console.log(`invalid parameter: ${n}`);
+    return `invalid parameter: ${n}`;
   } else if (isNaN(n) === true) {
     console.log(`invalid parameter: ${n}`);
+    return `invalid parameter: ${n}`;
   } else {
     for (let i = 1; i <= n; i++) {
       if (i % 30 == 0) {
@@ -110,3 +115,5 @@ checkYuGiOh({ 30: "waguan" });
 checkYuGiOh("fizzbuzz is meh");
 checkYuGiOh([2, 3]);
 checkYuGiOh();
+checkYuGiOh(true);
+checkYuGiOh("gbhn");
