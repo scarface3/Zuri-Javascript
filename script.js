@@ -16,7 +16,16 @@
 // - convertFahrToCelsius({temp: 0}) should return `{temp: 0} is not a valid number but a/an object.`
 
 const convertFahrToCelsius = function (fahr) {
-  if (isNaN(fahr) === true) {
+  if (Array.isArray(fahr)) {
+    console.log(`[${fahr}] is not a valid number but a/an array`);
+    return;
+  } else if (typeof fahr === "object") {
+    console.log(`${JSON.stringify(fahr)} is not a valid number but a/an array`);
+    return;
+  }
+  let parsedNumber = Number(fahr);
+
+  if (Number.isNaN(parsedNumber)) {
     console.log(`${fahr} is not a valid number but a/an ${typeof fahr}`);
   } else {
     console.log(((fahr - 32) / 1.8).toFixed(4));
@@ -26,6 +35,7 @@ convertFahrToCelsius(0);
 convertFahrToCelsius("0");
 convertFahrToCelsius([1, 2, 3]);
 convertFahrToCelsius({ temp: 0 });
+
 // 2. Write a function named "checkYuGiOh" that takes a number, n, as an argument, creates an array of numbers from 1 to n and replaces factors of 2, 3, and 5 with "yu", "gi" and "oh", logs the resulting array to the console then returns the resulting array.
 
 // Note:
