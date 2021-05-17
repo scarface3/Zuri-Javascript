@@ -33,15 +33,18 @@ const convertFahrToCelsius = function (fahr) {
     console.log(`${fahr} is not a valid number but a/an ${typeof fahr}`);
     return `${fahr} is not a valid number but a/an ${typeof fahr}`;
   } else {
-    console.log(((parsedNumber - 32) / 1.8).toFixed(4));
-    return ((parsedNumber - 32) / 1.8).toFixed(4);
+    console.log(Number(((parsedNumber - 32) / 1.8).toFixed(4)));
+    return Number(((parsedNumber - 32) / 1.8).toFixed(4));
   }
 };
+
+convertFahrToCelsius(32);
 convertFahrToCelsius(0);
 convertFahrToCelsius("0");
 convertFahrToCelsius([1, 2, 3]);
 convertFahrToCelsius({ temp: 0 });
 convertFahrToCelsius(true);
+convertFahrToCelsius();
 
 // 2. Write a function named "checkYuGiOh" that takes a number, n, as an argument, creates an array of numbers from 1 to n and replaces factors of 2, 3, and 5 with "yu", "gi" and "oh", logs the resulting array to the console then returns the resulting array.
 
@@ -68,7 +71,13 @@ convertFahrToCelsius(true);
 
 const checkYuGiOh = function (n) {
   let a = [];
-  if (isNaN(n) === true) {
+  if (Array.isArray(n)) {
+    console.log(`invalid parameter: [${n}]`);
+  } else if (typeof n === "object") {
+    console.log(`invalid parameter: ${JSON.stringify(n)}`);
+  } else if (typeof n === "boolean") {
+    console.log(`invalid parameter: ${n}`);
+  } else if (isNaN(n) === true) {
     console.log(`invalid parameter: ${n}`);
   } else {
     for (let i = 1; i <= n; i++) {
@@ -92,8 +101,12 @@ const checkYuGiOh = function (n) {
     }
     console.log(a);
     // console.log(a);
+    return a;
   }
 };
 checkYuGiOh(10);
-checkYuGiOh(30);
+checkYuGiOh("5");
+checkYuGiOh({ 30: "waguan" });
 checkYuGiOh("fizzbuzz is meh");
+checkYuGiOh([2, 3]);
+checkYuGiOh();
